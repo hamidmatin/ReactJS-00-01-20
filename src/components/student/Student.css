@@ -1,8 +1,11 @@
 .student {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+
   padding: 8px;
+  border-bottom: 1px solid #f1f1f1;
+  box-shadow: 0 2px 4px -2px #555;
 }
 .student:hover{
   background-color: rgb(208, 245, 243);
@@ -11,6 +14,7 @@
 .student .content{
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
 }
 .student .avatar {
   width: 45px;

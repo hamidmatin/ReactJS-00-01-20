@@ -1,3 +1,14 @@
+.row{
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+}
+aside{
+  width: 35%;
+}
+main{
+  width: 65%;
+}
 .App {
   text-align: center;
 }
