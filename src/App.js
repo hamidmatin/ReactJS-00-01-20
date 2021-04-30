@@ -18,15 +18,25 @@ import ReactCourse, {myFucntion as myFN, session_number as sNum} from './react-m
 // import {MY_PROJECT_NAME, SESSION_COUNT, START_DATE} from './react-modules/my_constant'
 import * as project_const from './react-modules/my_constant'
 
+
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
+import Student from './components/student/Student';
+
 class App extends React.Component{
   render(){
-    const myCourse = new ReactCourse();
+    const myCourse = new ReactCourse('ReactJS', 40);
 
     // myFucntion()
     myFN()
 
     return(
       <div className="App">
+        <Header />
+        <Student firstName='Hamid reza' lastName='Izadi Matin' soundStatus='m'/>
+        <Student firstName='Aysan' lastName='Kahbasi' soundStatus='s'/>
+        <Student firstName='Amir' lastName='Ershadian' soundStatus='s'/>
+        
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -44,6 +54,7 @@ class App extends React.Component{
             Learn React
           </a>
         </header>
+        <Footer />
       </div>
     )
   }

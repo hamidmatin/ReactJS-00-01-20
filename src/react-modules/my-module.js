@@ -12,9 +12,9 @@ const myFucntion = () => {
 };
 
 class Course {
-  constructor() {
-    this.name = 'ReactJS';
-    this.duration = 40;
+  constructor(name, duration) {
+    this.name = name;
+    this.duration = duration;
     this.teacher = teacher;
   }
 

@@ -1,0 +1,46 @@
+.student {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+.student:hover{
+  background-color: rgb(208, 245, 243);
+}
+
+.student .content{
+  display: flex;
+  align-items: center;
+}
+.student .avatar {
+  width: 45px;
+  height: 45px;
+  background-color: dodgerblue;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 50%;
+  position: relative;
+}
+.student .avatar .sound-status {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  background-color: red;
+  line-height: 10px;
+  width: 12px;
+  height: 12px;
+  font-weight: 300;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.student .full-name {
+  padding: 8px 16px;
+  text-align: start;
+}
+
+.hide{
+  display: none;
+}
