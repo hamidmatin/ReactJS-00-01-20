@@ -1,0 +1,19 @@
+nav{
+  display: flex;
+}
+nav .nav-link{
+  text-decoration: none;
+  color: black;
+  padding: .5em 1em;
+}
+nav .nav-link:hover{
+  background-color: hsl(0, 0%, 85%);
+}
+nav .nav-link.active{
+  color: red;
+}
+
+nav .active-link{
+  background-color: rgb(13, 189, 189);
+  color: white;
+}

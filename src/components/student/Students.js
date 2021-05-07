@@ -27,6 +27,9 @@ export default class Students extends Component {
   render() {
     return (
       <div>
+        <h2 className='page-title'>
+          <span>Students</span>
+        </h2>
         {this.state.studentList.map((student, index) => (
           <Student key={index}
                    firstName={student.firstName}

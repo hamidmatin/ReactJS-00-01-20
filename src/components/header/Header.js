@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Nav from '../nav/Nav'
 import './Header.css'
 
 export default class Header extends Component {
@@ -6,6 +7,7 @@ export default class Header extends Component {
     return (
       <div className='header'>
         <h1>React Case Study Project</h1>
+        <Nav />
       </div>
     )
   }

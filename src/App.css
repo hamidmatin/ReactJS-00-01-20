@@ -3,14 +3,17 @@
   flex-direction:row;
   flex-wrap: wrap;
 }
-aside{
-  width: 35%;
+.container{
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
-main{
-  width: 65%;
+
+.page-title span{
+  border-bottom: 3px solid red;
 }
 .App {
-  text-align: center;
+  text-align: start;
 }
 
 .App-logo {

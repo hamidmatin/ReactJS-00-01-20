@@ -1,72 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-/***** Import Module ****/
-// import Course from './react-modules/my-module'
-
-/* میتوانید نام ماجول های پیش فرض را تغییر دهید */
-// import ReactCourse from './react-modules/my-module'
-// import {myFucntion, session_number} from './react-modules/my-module'
-
-/* ایمپورت همزمان */
-// import ReactCourse, {myFucntion, session_number} from './react-modules/my-module'
-
-/* تغییر نام */
-import ReactCourse, {
-  myFucntion as myFN,
-  session_number as sNum,
-} from './react-modules/my-module';
-
-// import {MY_PROJECT_NAME, SESSION_COUNT, START_DATE} from './react-modules/my_constant'
-import * as project_const from './react-modules/my_constant';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Home from './components/home/Home';
 import Students from './components/student/Students';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NotFound_404 from './components/404/NotFound_404';
+import ClassComponentLifeCycle from './components/classComponentLifeCycle/ClassComponentLifeCycle';
 
-class App extends React.Component {
-  render() {
-    const myCourse = new ReactCourse('ReactJS', 40);
-
-    // myFucntion()
-    myFN();
-
-    return (
-      <div className='App'>
+const App = () => {
+  return (
+    <div className='App'>
+      <BrowserRouter>
         <Header />
-        <div className='row'>
-          <aside>
-            <Students />
-          </aside>
-          <main>
-            <header className='App-header'>
-              <img src={logo} className='App-logo' alt='logo' />
-              <p>
-                Edit <code>src/App.js</code> and save to reload.
-              </p>
-              <p>{myCourse.showInfo()}</p>
-              <p>Session : {sNum}</p>
-              <p>
-                {project_const.MY_PROJECT_NAME}, {project_const.START_DATE},{' '}
-                {project_const.SESSION_COUNT}
-              </p>
-              <a
-                className='App-link'
-                href='https://reactjs.org'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Learn React
-              </a>
-            </header>
-          </main>
+        <div className='container'>
+          <Switch>
+            {/* <Route path='/' exact>
+              <Home att="value"/>
+            </Route> */}
+            <Route path='/' exact component={Home}/>
+
+            <Route path='/students' component={Students} />
+            <Route path='/render' render={()=><h3>Created by Render </h3>} />
+            <Route path='/classcomponentlifecycle' component={ClassComponentLifeCycle} />
+
+            <Route path='*' component={NotFound_404}/>
+          </Switch>
         </div>
 
         <Footer />
-      </div>
-    );
-  }
-}
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;
