@@ -2,48 +2,37 @@ import React, { Component } from 'react';
 import Student from './Student';
 
 export default class Students extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      studentList :[
+      studentList: [
         {
-          firstName:'Hamid Reza',
+          firstName: 'Hamid Reza',
           lastName: 'Izadi Matin',
-          soundStatus: 'm'
+          soundStatus: 'm',
         },
         {
-          firstName:'Aysan',
+          firstName: 'Aysan',
           lastName: 'Kahbasi',
-          soundStatus: 's'
+          soundStatus: 's',
         },
         {
-          firstName:'Amir',
+          firstName: 'Amir',
           lastName: 'Ershadian',
-          soundStatus: 's'
+          soundStatus: 's',
         },
-      ]
-    }
+      ],
+    };
   }
   render() {
     return (
       <div>
-        <Student
-          firstName={this.state.studentList[0].firstName}
-          lastName={this.state.studentList[0].lastName}
-          soundStatus={this.state.studentList[0].soundStatus}
-        />
-        
-        <Student
-          firstName={this.state.studentList[1].firstName}
-          lastName={this.state.studentList[1].lastName}
-          soundStatus={this.state.studentList[1].soundStatus}
-        />
-        <Student
-          firstName={this.state.studentList[2].firstName}
-          lastName={this.state.studentList[2].lastName}
-          soundStatus={this.state.studentList[2].soundStatus}
-        />
-        
+        {this.state.studentList.map((student, index) => (
+          <Student key={index}
+                   firstName={student.firstName}
+                   lastName={student.lastName}
+                   soundStatus={student.soundStatus}/>
+        ))}
       </div>
     );
   }
