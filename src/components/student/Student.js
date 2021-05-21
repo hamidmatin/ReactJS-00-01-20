@@ -10,7 +10,7 @@ export default class Student extends Component {
 
     this.state = {
       visible: true,
-      soundStatus: props.soundStatus,
+      soundStatus: props.student.soundStatus,
     };
   }
 
@@ -38,17 +38,24 @@ export default class Student extends Component {
     this.setState({ ...this.state, soundStatus });
   };
 
+  changeName = () => {
+    this.props.onChangeStudentName(
+      this.props.student.id,
+      'New ' + this.props.student.firstName,
+      'New ' + this.props.student.lastName
+    );
+  };
   render() {
     return this.state.visible ? (
       <div className='student'>
         <div className='content'>
           <div className='avatar'>
-            {this.props.firstName[0]}
-            {this.props.lastName[0]}
+            {this.props.student.firstName[0]}
+            {this.props.student.lastName[0]}
             <div className='sound-status'>{this.state.soundStatus}</div>
           </div>
           <div className='full-name'>
-            {this.props.firstName} {this.props.lastName}
+            {this.props.student.firstName} {this.props.student.lastName}
           </div>
         </div>
         <div className='action'>
@@ -67,6 +74,8 @@ export default class Student extends Component {
           >
             Set to Speaker
           </button>
+          <button onClick={this.props.onDeleteStudent}>Delete</button>
+          <button onClick={this.changeName}>Change Name</button>
         </div>
       </div>
     ) : null;

@@ -7,16 +7,19 @@ export default class Students extends Component {
     this.state = {
       studentList: [
         {
+          id: 1,
           firstName: 'Hamid Reza',
           lastName: 'Izadi Matin',
           soundStatus: 'm',
         },
         {
+          id: 2,
           firstName: 'Aysan',
           lastName: 'Kahbasi',
           soundStatus: 's',
         },
         {
+          id: 3,
           firstName: 'Amir',
           lastName: 'Ershadian',
           soundStatus: 's',
@@ -24,19 +27,44 @@ export default class Students extends Component {
       ],
     };
   }
+
+  deleteStudentHandler = (id) => {
+    console.log(`Delete index = ${id}`);
+
+    this.setState({
+      ...this.state,
+      studentList: this.state.studentList.filter(s=>s.id !== id),
+    });
+  };
+  changeStudentName = (id, newFirstName, newLastName) => {
+    const studentList = [...this.state.studentList]
+
+    const student = studentList.find(s => s.id === id) 
+
+    student.firstName = newFirstName;
+    student.lastName = newLastName;
+
+    this.setState({...this.state, studentList})
+   }
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h2 className='page-title'>
           <span>Students</span>
         </h2>
-        {this.state.studentList.map((student, index) => (
-          <Student key={index}
-                   firstName={student.firstName}
-                   lastName={student.lastName}
-                   soundStatus={student.soundStatus}/>
+        {this.state.studentList.map((student) => (
+          <Student
+            key={student.id}
+            student={student}
+            onDeleteStudent={() => {
+              this.deleteStudentHandler(student.id);
+            }}
+            onChangeStudentName={this.changeStudentName}
+          />
         ))}
-      </div>
+      </React.Fragment>
     );
   }
+
+
 }
