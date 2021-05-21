@@ -1,0 +1,11 @@
+.student-label{
+  font-weight: 800;
+  display: inline-block;
+  padding: 8px;
+}
+
+.action-panel{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}

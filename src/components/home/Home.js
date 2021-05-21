@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PageTitle } from '../page-tittle/PageTitle';
 
 export default function Home() {
   const paragStyle = {
@@ -15,9 +16,8 @@ export default function Home() {
   }
   return (
     <div>
-      <h2 className='page-title'>
-        <span>Home</span>
-      </h2>
+      <PageTitle title='Home'/>
+
       <h3 style={headingStyle}>Test Style</h3>
       <p style={paragStyle}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla

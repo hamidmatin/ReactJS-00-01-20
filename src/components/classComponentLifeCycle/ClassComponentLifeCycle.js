@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PageTitle } from '../page-tittle/PageTitle';
 
 export default class ClassComponentLifeCycle extends Component {
   constructor(props) {
@@ -39,9 +40,8 @@ export default class ClassComponentLifeCycle extends Component {
     console.log('(3. Mounting) (7. Updating) render');
     return (
       <div>
-        <h2 className='page-title'>
-          <span>Class Component LifeCycle</span>
-        </h2>
+        <PageTitle title='Class Component LifeCycle' />
+        
         <div style={{ textAlign: 'center', padding: '20px' }}>
           <p>Counter : {this.state.counter} </p>
           <button onClick={this.inc}>Increment</button>

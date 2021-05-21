@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PageTitle } from '../page-tittle/PageTitle';
 import Student from './Student';
 
 export default class Students extends Component {
@@ -49,9 +50,9 @@ export default class Students extends Component {
   render() {
     return (
       <React.Fragment>
-        <h2 className='page-title'>
-          <span>Students</span>
-        </h2>
+        
+        <PageTitle title='Students'/>
+
         {this.state.studentList.map((student) => (
           <Student
             key={student.id}

@@ -13,6 +13,7 @@ export default function Nav() {
       <NavLink to='/students' className='nav-link' activeStyle={myActiveStyle}>Students</NavLink>
       <NavLink to='/render' className='nav-link' activeClassName='active-link'>Render Comp</NavLink>
       <NavLink to='/classcomponentlifecycle' className='nav-link'>Class Component Lifecycle</NavLink>
+      <NavLink to='/users' className='nav-link'>Users</NavLink>
     </nav>
   )
 }
