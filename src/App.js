@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound_404 from './components/404/NotFound_404';
 import ClassComponentLifeCycle from './components/classComponentLifeCycle/ClassComponentLifeCycle';
 import { Users } from './components/users/Users';
-import { NewUser } from './components/student/NewUser';
+import { NewUser } from './components/users/NewUser';
 
 const App = () => {
   const initialUsers = [

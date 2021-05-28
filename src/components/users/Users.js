@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PageTitle } from '../page-tittle/PageTitle';
-import { NewUser } from '../student/NewUser';
+import { NewUser } from './NewUser';
 import { User } from './User';
 
 import './Users.css';
