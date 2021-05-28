@@ -136,6 +136,17 @@
   background-color: hsl(147, 89%, 30%);
 }
 
+.btn.btn-edit{
+  color: white;
+  background-color: hsl(189, 89%, 40%);
+}
+.btn.btn-edit:hover{
+  background-color: hsl(189, 89%, 20%);
+}
+
+.btn + .btn {
+  margin-left: 5px;
+}
 .input-form{
   width: 700px;
   margin-left: auto;

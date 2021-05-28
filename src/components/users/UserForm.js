@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export const UserForm = ({ user, onSubmitHandler }) => {
   const [newUser, setNewUser] = useState(user);
+  const history = useHistory()
 
   const onChangeName = (e) => {
     // console.log(e.target.value)
@@ -103,8 +106,12 @@ export const UserForm = ({ user, onSubmitHandler }) => {
         </div>
 
         <div className='action-panel'>
+          {/* <Link to='/users' className='btn btn-delete'>Cancel</Link> */}
+          <button type='button' className='btn btn-delete' onClick={()=>{history.goBack()}}>
+            Cancel
+          </button>
           <button type='submit' className='btn btn-new'>
-            Add New
+            Save
           </button>
         </div>
       </form>
