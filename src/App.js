@@ -12,6 +12,8 @@ import { NewUser } from './components/users/NewUser';
 import { EditUser } from './components/users/EditUser';
 import Posts from './components/posts/Posts';
 import ReduxCC from './components/redux/ReduxCC';
+import NewPost from './components/posts/NewPost';
+import EditPost from './components/posts/EditPost';
 
 
 const App = () => {
@@ -33,6 +35,8 @@ const App = () => {
             <Route path='/users/edit/:id' component={EditUser} />
             
             <Route path='/posts' component={Posts} exact/>
+            <Route path='/posts/new' component={NewPost} />
+            <Route path='/posts/edit/:id' component={EditPost} />
 
             <Route path='*' component={NotFound_404}/>
           </Switch>

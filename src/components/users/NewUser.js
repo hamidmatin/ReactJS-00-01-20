@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
+import { NEW_USER } from '../../redux/actiontypes';
 import { PageTitle } from '../page-tittle/PageTitle';
 import { UserForm } from './UserForm';
 import UserInfo from './UserInfoClass';
@@ -8,19 +10,15 @@ export const NewUser = () => {
   const user = new UserInfo();
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const newUserHandler = (newUser) => {
     console.log(newUser);
-
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      body: JSON.stringify(newUser),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
+    
+    dispatch({
+      type: NEW_USER,
+      payload: { user: newUser }
     })
-    .then(response => response.json())
-    .then(data => { console.log(data)});
 
     history.push('/users');
   };

@@ -1,19 +1,26 @@
 import React from 'react'
-import { useHistory } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router';
+import { EDIT_USER } from '../../redux/actiontypes';
 import { PageTitle } from '../page-tittle/PageTitle';
 import { UserForm } from './UserForm';
-import UserInfo from './UserInfoClass'
 
-export const EditUser = ({updateUser}) => {
- 
-  const user = new UserInfo()
-
+export const EditUser = () => {
   const history = useHistory()
+  const dispatch = useDispatch();
+  const { id } = useParams()
+  
+  const user = useSelector(state => state.users.find(u => u.id.toString() === id))
+
 
   const editUserHandler = (user) =>{
     console.log(user);
 
-    updateUser(user)
+    dispatch({
+      type: EDIT_USER,
+      payload: {user}
+    })
+
     history.push('/users')
   }
   return (

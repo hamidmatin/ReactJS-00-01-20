@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PageTitle } from '../page-tittle/PageTitle';
-
-export default class ClassComponentLifeCycle extends Component {
+import { connect } from 'react-redux';
+class ClassComponentLifeCycle extends Component {
   constructor(props) {
     super(props);
     console.log('(1. Mounting) constructor');
@@ -20,15 +20,13 @@ export default class ClassComponentLifeCycle extends Component {
     }
     return null;
   }
-  shouldComponentUpdate(nextProps, nextState){
+  shouldComponentUpdate(nextProps, nextState) {
     console.log('(6. Updating) shouldComponentUpdate');
     // console.log('nextProps', nextProps)
     // console.log('nextState', nextState)
 
-    return nextState.counter < 10 && nextState.counter > -10
+    return nextState.counter < 10 && nextState.counter > -10;
   }
- 
-
 
   inc = () => {
     this.setState({ counter: this.state.counter + 1 });
@@ -41,11 +39,12 @@ export default class ClassComponentLifeCycle extends Component {
     return (
       <div>
         <PageTitle title='Class Component LifeCycle' />
-        
+
         <div style={{ textAlign: 'center', padding: '20px' }}>
           <p>Counter : {this.state.counter} </p>
           <button onClick={this.inc}>Increment</button>
           <button onClick={this.dec}>Decrement</button>
+          <p>{this.props.testRedux}</p>
         </div>
       </div>
     );
@@ -54,20 +53,26 @@ export default class ClassComponentLifeCycle extends Component {
   componentDidMount() {
     console.log('(4. Mounting) componentDidMount');
   }
- 
-  getSnapshotBeforeUpdate(prevProps, prevState){
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('(8. Updating) getSnapshotBeforeUpdate');
-    return 'set value for snapshot or return null'
+    return 'set value for snapshot or return null';
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(`(9. Updating) componentDidUpdate `)
+    console.log(`(9. Updating) componentDidUpdate `);
     // console.log('prevProps', prevProps)
     // console.log('prevState', prevState, this.state)
     // console.log('snapshot', snapshot)
   }
 
-  
   componentWillUnmount() {
     console.log('(10. Unmounting) componentWillUnmount');
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    testRedux: state.test,
+  };
+};
+export default connect(mapStateToProps)(ClassComponentLifeCycle);
